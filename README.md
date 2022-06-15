@@ -35,13 +35,6 @@ To get started, please read below and follow the "Getting Started" directions
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Getting Started
-
-Getting started is simple. Begin by downloading the repo and running `go get` from the terminal. Next, create a `.env` file in root directory of the project. Populate this file two variables: `PORT` and `DISCOVERY_NODE_ADDRESS`. Set the `PORT` variable to whatever port you want the first instance of the blockchain to run on. `DISCOVERY_NODE_ADDRESS` is used for initializing new nodes into an already-running blockchain. Thus, for the initial node, this should be left blank. For all subsequent nodes, however, you'll want to put the localhost http address of the initial node that created the genesis block for your blockchain (This could be `DISCOVERY_NODE_ADDRESS=http://localhost:5000`, for instance). If you try to run two nodes on the same port, the project will not work correctly.
-Once you've done that initial setup, starting a new node is as simple as running `go run ZChain.go` from the terminal. From there, you can create as many new nodes as you like, and they will all stay synchronized with one another as long as a `DISCOVERY_NODE_ADDRESS` in the `.env` file is provided for all new nodes.
-To add a new block to the blockchain, simply send a POST request to the `/` route of any synchronized node. The JSON body of your request should be formatted as such: `{ "Data":"Sample Data" }`.
-To see a node's current copy of the blockchain, send a GET request to the `/` route of your desired node.
-
 ## Prerequisites
 
 This project requires you to have the Go programming language installed and configured on your system.
